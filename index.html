@@ -530,16 +530,10 @@
           </ul>
         </div>
         <div class="footer-right-side">
-          <form class="footer-form">
-            <h2 class="title">Підпишіться на розсилку</h2>
-            <div class="thumb">
-              <input type="email" name="Email" placeholder="E-mail" />
-              <button type="submit" class="footer-button">
-                Відправити<svg class="send-icon" width="24" height="24">
-                  <use href="./images/icons.svg#send-icon"></use>
-                </svg>
-              </button>
-            </div>
+          <form name="footer-form" class="footer-form">
+            <strong class="title">Підпишіться на розсилку</strong>
+            <input type="email" name="Email-address" placeholder="E-mail" />
+            <button type="submit" class="footer-button">Підписатися</button>
           </form>
         </div>
       </div>
@@ -551,61 +545,41 @@
             <use href="./images/icons.svg#close-icon"></use>
           </svg>
         </button>
-        <form class="modal-form">
-          <h2 class="title">Залиште свої дані, ми вам передзвонимо</h2>
-          <ul class="list form-list">
-            <li class="field">
-              <label for="name">Ім'я</label>
-              <div class="thumb">
-                <input type="text" name="User-name" id="name" />
-                <svg class="form-icon" width="18" height="18">
-                  <use href="./images/icons.svg#person-icon"></use>
-                </svg>
-              </div>
-            </li>
+        <form name="modal" class="modal-form">
+          <strong class="title">Залиште свої дані, ми вам передзвонимо</strong>
+          <label class="field-label"
+            ><span>Ім'я</span>
+            <input type="text" name="User-name" />
+            <svg class="form-icon" width="18" height="18">
+              <use href="./images/icons.svg#person-icon"></use>
+            </svg>
+          </label>
 
-            <li class="field">
-              <label for="tel">Телефон</label>
-              <div class="thumb">
-                <input type="tel" name="Tel" id="tel" /><svg
-                  class="form-icon"
-                  width="18"
-                  height="18"
-                >
-                  <use href="./images/icons.svg#phone-icon"></use>
-                </svg>
-              </div>
-            </li>
+          <label class="field-label"
+            ><span>Телефон</span>
+            <input type="tel" name="Telephone-number" />
+            <svg class="form-icon" width="18" height="18">
+              <use href="./images/icons.svg#phone-icon"></use>
+            </svg>
+          </label>
 
-            <li class="field">
-              <label for="email">Пошта</label>
-              <div class="thumb">
-                <input type="email" name="Email" id="email" /><svg
-                  class="form-icon"
-                  width="18"
-                  height="18"
-                >
-                  <use href="./images/icons.svg#mail-icon"></use>
-                </svg>
-              </div>
-            </li>
-          </ul>
-          <label for="comment">Коментар</label>
-          <textarea
-            name="comment"
-            id="comment"
-            cols="30"
-            rows="10"
-            placeholder="Введіть текст"
-          ></textarea>
+          <label class="field-label"
+            ><span>Пошта</span>
+            <input type="email" name="Email-address" />
+            <svg class="form-icon" width="18" height="18">
+              <use href="./images/icons.svg#email-icon"></use>
+            </svg>
+          </label>
 
-          <label class="check">
-            <input type="checkbox" name="Policy" id="policy" class="check-input" />
-            <span class="check-icon"></span>
-            Погоджуюся з розсилкою та приймаю &#160;<a href="" class="link"
-              >Умови договору</a
-            ></label
-          >
+          <label class="textarea-label">
+            <span>Коментар</span>
+            <textarea name="Comment" cols="6" placeholder="Введіть текст"></textarea>
+          </label>
+
+          <label class="checkbox-label">
+            <input type="checkbox" />
+            <span>Погоджуюся з розсилкою та приймаю <a href="">Умови договору</a></span>
+          </label>
 
           <button type="submit" class="form-button">Відправити</button>
         </form>

@@ -12,7 +12,8 @@
   --icons-bg: #afb1b8;
   --overlay-bg: rgba(33, 150, 243, 0.9);
   --hero-overlay-bg: rgba(47, 48, 58, 0.4);
-  --textarea-placeholder-color: rgba(117, 117, 117, 0.5);
+  --placeholder-text-color: rgba(117, 117, 117, 0.5);
+  --footer-placeholder-text-color: rgba(255, 255, 255, 0.6);
 
   /* transition vars */
   --duration: 250ms;
@@ -523,7 +524,6 @@ footer {
   margin-right: 70px;
 }
 
-/* footer center */
 .footer-center {
   margin-right: 93px;
 }
@@ -539,11 +539,11 @@ footer {
   margin-bottom: 20px;
 }
 
-/* footer right-side */
 .footer-form .title {
+  display: block;
+
   margin-bottom: 20px;
 
-  font-size: inherit;
   line-height: calc(16 / 14);
   text-transform: uppercase;
 
@@ -551,33 +551,47 @@ footer {
 }
 
 .footer-form input {
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
-
-  background-color: transparent;
   height: 50px;
   width: 358px;
+
+  padding: 15px 16px;
+  margin-right: 8px;
+
+  cursor: pointer;
+
+  color: var(--white-color);
+  background-color: transparent;
+
   border: 1px solid rgba(255, 255, 255, 0.3);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
   border-radius: 4px;
-
-  padding: 15px 0 15px 16px;
-  margin-right: 12px;
 }
 
-.footer-form .thumb {
-  display: flex;
+.footer-form input::placeholder {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: calc(20 / 16);
+
+  color: var(--footer-placeholder-text-color);
 }
 
-.footer-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-
+.footer-form .footer-button {
   min-width: 200px;
-  fill: var(--white-color);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* portfolio page */
+.footer-button::after {
+  content: '';
+  margin-left: 10px;
+  width: 24px;
+  height: 24px;
+  background-image: url(../icons/send.svg);
+}
+/* portfoli
+o page */
 /* filter */
 .filter-list {
   display: flex;
@@ -757,11 +771,10 @@ footer {
   transform: translate(-50%, -50%);
 }
 
-/*modal form */
+/* modal form */
 .modal-form {
   display: flex;
   flex-direction: column;
-
   padding: 33px 40px 47px;
 }
 
@@ -775,121 +788,110 @@ footer {
   color: var(--title-text-color);
 }
 
-.form-list {
-  display: flex;
-  flex-direction: column;
-}
-
-.form-list .field {
+.modal-form label {
   display: flex;
   flex-direction: column;
 
-  margin-bottom: 10px;
+  cursor: pointer;
 }
 
-/* Labels and placeholder */
-.form-list label,
-label[for='comment'],
-textarea::placeholder {
+.modal-form .field-label span,
+.modal-form .textarea-label span {
+  margin-bottom: 4px;
+}
+
+.modal-form textarea::placeholder {
+  color: var(--placeholder-text-color);
+}
+
+.modal-form .field-label span,
+.modal-form .textarea-label span,
+.modal-form textarea::placeholder {
   font-size: 12px;
   line-height: calc(14 / 12);
   letter-spacing: 0.01em;
 }
 
-.form-list label,
-label[for='comment'] {
-  margin-bottom: 4px;
-}
-
-.modal-form label {
-  cursor: pointer;
-}
-
-/* icons */
-.field .thumb {
-  display: flex;
-  flex-direction: column;
+.modal-form .field-label {
   position: relative;
+
+  margin-bottom: 10px;
 }
 
 .form-icon {
   position: absolute;
-  top: 50%;
   left: 12px;
-
-  transform: translateY(-50%);
-  transition: fill var(--duration) var(--cubic-bezier);
+  bottom: 11px;
 }
 
-.field:focus-within .form-icon {
+.modal-form .field-label input:hover + .form-icon,
+.modal-form .field-label input:focus + .form-icon {
   fill: var(--accent-color);
 }
-/* Input and textarea */
-.form-list input {
+
+.modal-form .field-label input {
   height: 40px;
   padding-left: 42px;
 }
 
-.form-list input,
-textarea {
+.modal-form .textarea-label {
+  margin-bottom: 20px;
+}
+
+.modal-form textarea {
+  padding: 12px 16px;
+  height: 120px;
+
+  resize: none;
+}
+
+.modal-form .field-label input,
+.modal-form .textarea-label textarea {
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
 
   cursor: pointer;
 }
 
-textarea {
-  padding: 12px 16px;
-  height: 120px;
-  margin-bottom: 20px;
-
-  resize: none;
-}
-
-textarea::placeholder {
-  color: var(--textarea-placeholder-color);
-}
-
-/* checkbox */
-.check {
-  display: flex;
+.modal-form .checkbox-label {
+  flex-direction: row;
   align-items: center;
-  margin-bottom: 30px;
-  padding-left: 24px;
 
-  cursor: pointer;
-
-  line-height: calc(24 / 14);
   margin-left: auto;
   margin-right: auto;
+
+  margin-bottom: 30px;
 }
 
-.check-input {
+.modal-form .checkbox-label input {
   cursor: pointer;
+
   appearance: none;
   position: absolute;
 }
 
-.check-icon {
+.modal-form .checkbox-label span {
+  line-height: calc(24 / 14);
+
+  padding-left: 23px;
+}
+
+.modal-form .checkbox-label a {
+  color: var(--accent-color);
+}
+
+.modal-form .checkbox-label input {
+  content: '';
+  display: inline-block;
   width: 16px;
   height: 15px;
-  background-repeat: no-repeat;
-  background-size: contain;
-  position: absolute;
-  margin-left: -24px;
-  background-image: url(../images/icon-check-off.svg);
+  background-image: url(../images/checkbox-off.svg);
 }
 
-.check-input:checked + .check-icon {
-  background-image: url(../images/icon-check-on.svg);
+.modal-form .checkbox-label input:checked {
+  background-image: url(../images/checkbox-on.svg);
 }
 
-.check .link {
-  color: var(--accent-color);
-  text-decoration: underline;
-}
-
-/* form button */
 .form-button {
   min-width: 200px;
   margin-left: auto;
